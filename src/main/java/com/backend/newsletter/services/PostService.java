@@ -27,6 +27,10 @@ public class PostService {
         post.setTitle(postDTO.title());
         post.setContent(postDTO.content());
         post.setCreated_at(OffsetDateTime.now());
+        post.setAuthor(postDTO.author());
+        post.setUrl(postDTO.url());
+        post.setDescription(postDTO.description());
+        post.setImageUrl(postDTO.imageUrl());
         return postRepository.save(post);
     }
 
