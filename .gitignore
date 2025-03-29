@@ -14,7 +14,7 @@ target/
 .sts4-cache
 
 # Ignorar configurações sensíveis do Spring Boot
-src/main/resources/application.properties
+.env
 
 ### IntelliJ IDEA ###
 .idea
