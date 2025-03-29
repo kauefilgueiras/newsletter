@@ -63,6 +63,7 @@
 	</dependencies>
 
 	<build>
+
 		<plugins>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
@@ -89,6 +90,13 @@
 				</configuration>
 			</plugin>
 		</plugins>
+			<resources>
+				<resource>
+					<directory>src/main/resources</directory>
+					<filtering>false</filtering> <!-- Aqui é o segredo -->
+				</resource>
+			</resources>
 	</build>
+
 
 </project>
