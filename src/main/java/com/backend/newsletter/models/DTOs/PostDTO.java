@@ -1,8 +1,10 @@
 package com.backend.newsletter.models.DTOs;
 
 import java.time.OffsetDateTime;
+import java.util.UUID;
 
 public record PostDTO(
+        UUID id,
         String title,
         String content,
         OffsetDateTime created_at,

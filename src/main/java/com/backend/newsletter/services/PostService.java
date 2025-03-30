@@ -2,8 +2,15 @@ package com.backend.newsletter.services;
 import com.backend.newsletter.models.DTOs.PostDTO;
 import com.backend.newsletter.models.Post;
 import com.backend.newsletter.repositories.PostRepository;
+import jakarta.persistence.EntityNotFoundException;
+import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+
+
 import java.time.OffsetDateTime;
 import java.util.List;
 import java.util.Optional;
@@ -46,4 +53,9 @@ public class PostService {
     public void delete(UUID id){
         postRepository.deleteById(id);
     }
+
+    public Post update(Post post){
+       return postRepository.save(post);
+    }
+
 }

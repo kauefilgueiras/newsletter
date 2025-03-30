@@ -3,12 +3,15 @@ package com.backend.newsletter.controllers;
 import com.backend.newsletter.models.DTOs.PostDTO;
 import com.backend.newsletter.models.Post;
 import com.backend.newsletter.services.PostService;
+import jakarta.persistence.EntityNotFoundException;
+import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.UUID;
 
 @RestController
@@ -40,4 +43,15 @@ public class PostController {
         postService.delete(id);
     }
 
+    @PutMapping("/{id}")
+    @Transactional
+    public Post update(@RequestBody PostDTO postDTO, @PathVariable UUID id){
+        Optional<Post> optionalPost = postService.findById(id);
+        if (!optionalPost.isPresent()) {
+            throw new IllegalArgumentException();
+        }
+        Post post = optionalPost.get();
+        post.setSent(postDTO.sent());
+        return postService.update(post);
+    }
 }
