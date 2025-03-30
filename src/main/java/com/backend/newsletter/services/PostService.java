@@ -16,7 +16,7 @@ public class PostService {
     private PostRepository postRepository;
 
     public Post create(PostDTO postDTO){
-        if (postDTO.title() == null || postDTO.content() == null ){
+        if (postDTO.title() == null || postDTO.content() == null || postDTO.author() == null ){
             throw new IllegalArgumentException("Dados invalidos ou incompletos");
         }
         if (postDTO.created_at() != null && postDTO.created_at().isAfter(OffsetDateTime.now())){
@@ -31,6 +31,7 @@ public class PostService {
         post.setUrl(postDTO.url());
         post.setDescription(postDTO.description());
         post.setImageUrl(postDTO.imageUrl());
+        post.setSent(postDTO.sent(false));
         return postRepository.save(post);
     }
 

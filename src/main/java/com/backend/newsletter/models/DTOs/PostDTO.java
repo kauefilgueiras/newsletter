@@ -9,6 +9,10 @@ public record PostDTO(
         String author,
         String description,
         String url,
-        String imageUrl
+        String imageUrl,
+        boolean sent
 ){
+    public boolean sent(boolean sent){
+        return sent = this.sent;
+    }
 }

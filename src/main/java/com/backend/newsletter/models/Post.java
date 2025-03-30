@@ -39,6 +39,17 @@ public class Post {
     @Column(name = "created_at")
     private OffsetDateTime created_at;
 
+    @Column(name = "sent")
+    private boolean sent;
+
+    public boolean isSent() {
+        return sent;
+    }
+
+    public void setSent(boolean sent) {
+        this.sent = sent;
+    }
+
     public UUID getId() {
         return id;
     }
