@@ -15,6 +15,7 @@ target/
 
 # Ignorar configurações sensíveis do Spring Boot
 .env.dev
+.env.prod
 
 ### IntelliJ IDEA ###
 .idea
